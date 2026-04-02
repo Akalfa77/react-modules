@@ -1,0 +1,86 @@
+/* Container for user details page */
+.details8-container {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+/* Page title */
+.details8-title {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 24px;
+    font-size: 1.8rem;
+}
+
+/* The card that holds all user info */
+.details8-card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Circular avatar with the user's initial */
+.details8-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #3498db, #8e44ad);
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+
+/* Container for all info rows */
+.details8-info {
+    text-align: left;
+}
+
+/* Each row of information (label + value) */
+.details8-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #ecf0f1;
+}
+
+.details8-row:last-child {
+    border-bottom: none;
+}
+
+/* Label text (ID:, Name:, etc.) */
+.details8-label {
+    font-weight: 600;
+    color: #7f8c8d;
+    font-size: 0.95rem;
+}
+
+/* Value text (actual user data) */
+.details8-value {
+    color: #2c3e50;
+    font-size: 0.95rem;
+}
+
+/* Go Back button */
+.back-btn8 {
+    display: block;
+    margin: 24px auto 0;
+    padding: 10px 28px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.back-btn8:hover {
+    background-color: #c0392b;
+}

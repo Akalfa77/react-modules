@@ -19,7 +19,6 @@ const VirtualizedProductList = React.memo(function VirtualizedProductList({ prod
                 <h3>Products ({products.length})</h3>
             </div>
 
-
             <FixedSizeList
                 height={height}
                 width="100%"

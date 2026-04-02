@@ -34,6 +34,7 @@ export default function Homepage() {
                         <NavLink to="/demoApp8">DemoApp8</NavLink>
                         <NavLink to="/moduleTask8">Module-task8</NavLink>
                         <NavLink to="/demoApp9">DemoApp9</NavLink>
+                        <NavLink to="/milestoneTask9">MilestoneTask9</NavLink>
                     </nav>
                 </div>
             </div>

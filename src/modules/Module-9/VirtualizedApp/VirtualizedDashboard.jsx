@@ -36,7 +36,7 @@ export default function VirtualizedDashboard() {
     }, []);
 
     const filteredProducts = useMemo(() => {
-        console.log("filteredProducts recalculating...");
+        console.log("filteredProducts recalculating");
 
         return products
             .filter((product) =>

@@ -2,9 +2,7 @@ import React from 'react'
 import { NavLink, Outlet, useNavigate } from 'react-router'
 import './homepage.css'
 
-
 export default function Homepage() {
-
     const navigate = useNavigate();
 
     return (
@@ -28,7 +26,6 @@ export default function Homepage() {
                         <NavLink to="/modalApp" >ModalApp</NavLink>
                         <NavLink to="/moduleApp6" >ModuleApp6</NavLink>
                         <NavLink to="/finalApp6" >FinalApp6</NavLink>
-                        {/* <NavLink to="/demoApp7" >DemoApp7</NavLink> */}
                         <NavLink to="/layout1" >Layout1</NavLink>
                         <NavLink to="/navbar" >Module-task7</NavLink>
                         <NavLink to="/demoApp8">DemoApp8</NavLink>
@@ -38,15 +35,16 @@ export default function Homepage() {
                     </nav>
                 </div>
             </div>
-            <div>
+
+            <div className='page-content'>
                 <Outlet />
             </div>
+
             <div className='bottom-section'>
                 <button className='backward-btn' onClick={() => { navigate(-1) }}>Go Backward</button>
                 <button className='forward-btn' onClick={() => { navigate(1) }}>Go forward</button>
                 <button className='home-btn' onClick={() => { navigate("..", { replace: true }) }}>Go to Home</button>
             </div>
-
         </>
     )
 }

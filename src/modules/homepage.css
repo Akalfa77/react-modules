@@ -23,18 +23,19 @@
 .module-section:hover .module-list {
   display: block;
 } */
-
 .homepage {
   width: 100%;
   display: flex;
   align-items: center;
-  /* justify-content: center; */
+  justify-content: space-between;
   background: #1b2a41;
   padding: 30px;
   color: white;
   font-family: "Segoe UI", sans-serif;
-  /* overflow: hidden; */
-
+  position: relative;
+  /* important */
+  z-index: 1000;
+  /* important */
 }
 
 .homepage h1 {
@@ -48,7 +49,8 @@
 
 .module-section {
   position: relative;
-
+  z-index: 1001;
+  /* above page content */
 }
 
 .module-btn {
@@ -71,9 +73,8 @@
 
 .module-list {
   position: absolute;
-  top: 110%;
-  left: 50%;
-  /* transform: translateX(-50%) translateY(10px); */
+  top: calc(100% + 8px);
+  right: 0;
   width: 260px;
   background: white;
   border-radius: 12px;
@@ -82,14 +83,22 @@
 
   opacity: 0;
   visibility: hidden;
-  /* transition: all 0.3s ease; */
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 2000;
 }
 
+.page-content {
+  position: relative;
+  z-index: 1;
+}
 
 .module-section:hover .module-list {
   opacity: 1;
   visibility: visible;
-  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+  transform: translateY(0);
 }
 
 .module-list a {

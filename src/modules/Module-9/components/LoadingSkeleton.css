@@ -1,0 +1,86 @@
+.skeleton-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 10px 0;
+}
+
+.skeleton-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: white;
+}
+
+/* The pulsing animation — fades between light grey shades */
+/* This simulates content loading */
+.skeleton-pulse {
+    background: linear-gradient(90deg,
+            #f0f0f0 25%,
+            #e0e0e0 50%,
+            #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: skeleton-shimmer 1.5s infinite;
+    border-radius: 4px;
+}
+
+/* Shimmer moves from left to right — mimics light reflection */
+@keyframes skeleton-shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Image area - fixed height to match real card */
+.skeleton-image {
+    width: 100%;
+    height: 220px;
+    border-radius: 0;
+}
+
+.skeleton-content {
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Full width title line */
+.skeleton-title {
+    height: 14px;
+    width: 100%;
+}
+
+/* Shorter second title line — looks more natural */
+.skeleton-title-short {
+    width: 65%;
+}
+
+.skeleton-meta {
+    display: flex;
+    gap: 8px;
+}
+
+/* Small tag-like placeholders */
+.skeleton-tag {
+    height: 24px;
+    width: 80px;
+    border-radius: 20px;
+}
+
+.skeleton-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+/* Button placeholders */
+.skeleton-btn {
+    height: 32px;
+    width: 90px;
+    border-radius: 6px;
+}

@@ -1,0 +1,20 @@
+/* The sentinel itself is invisible */
+/* Height of 1px ensures IntersectionObserver can detect it */
+.scroll-sentinel {
+    height: 1px;
+    width: 100%;
+}
+
+/* End of content message */
+.sentinel-end {
+    text-align: center;
+    padding: 30px 20px;
+    color: #888;
+    font-size: 14px;
+    border-top: 1px solid #eee;
+    margin-top: 20px;
+}
+
+.sentinel-end p {
+    margin: 0;
+}

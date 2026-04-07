@@ -1,0 +1,29 @@
+/* Fixed position — stays in corner while user scrolls */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: #4a90d9;
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    z-index: 999;
+}
+
+.back-to-top:hover {
+    background-color: #357abd;
+    transform: translateY(-2px);
+}
+
+.back-to-top-icon {
+    width: 20px;
+    height: 20px;
+}

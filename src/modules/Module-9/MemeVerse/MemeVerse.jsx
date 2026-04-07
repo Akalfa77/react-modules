@@ -37,13 +37,17 @@ export default function MemeVerse() {
 
     return (
         <div className="memeverse-container">
-
             <div className="memeverse-header">
-                <h2 className="memeverse-title">MemeVerse</h2>
+                <div className="memeverse-title-group">
+                    <p className="memeverse-kicker">Social Feed</p>
+                    <h2 className="memeverse-title">MemeVerse</h2>
+                    <p className="memeverse-subtitle">
+                        A scroll-first meme feed with bigger visuals, cleaner captions, and a more social-media feel.
+                    </p>
+                </div>
 
                 <div className="memeverse-stats">
                     <span className="stat-item">
-                        {/* Stack icon SVG */}
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 24 24"
@@ -93,7 +97,6 @@ export default function MemeVerse() {
             />
 
             <BackToTop />
-
         </div>
     );
 }

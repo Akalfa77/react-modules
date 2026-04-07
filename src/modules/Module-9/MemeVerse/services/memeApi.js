@@ -12,7 +12,8 @@ export async function fetchMemes(subreddit = null, count = 20) {
   }
 
   const data = await response.json();
-  const safeMemes = data.memes.filter((meme) => !meme.nsfw && !meme.spoiler);
+  const memes = Array.isArray(data.memes) ? data.memes : data.postLink ? [data] : [];
+  const safeMemes = memes.filter((meme) => !meme.nsfw && !meme.spoiler);
 
   return safeMemes;
 }

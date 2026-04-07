@@ -3,32 +3,31 @@
 }
 
 .meme-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 20px;
+    width: min(100%, 680px);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
 }
 
-/* Container for bottom skeleton cards */
-/* Adds some top spacing to separate from main grid */
 .loading-more-skeleton {
-    margin-top: 10px;
+    width: min(100%, 680px);
+    margin: 16px auto 0;
 }
 
-/* Empty state message */
 .no-memes {
+    width: min(100%, 680px);
+    margin: 0 auto;
     text-align: center;
-    padding: 60px 20px;
-    color: #888;
+    padding: 48px 24px;
+    color: #64748b;
     font-size: 15px;
+    border-radius: 28px;
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.06);
 }
 
 .no-memes p {
     margin: 0;
-}
-
-/* Responsive grid adjustments */
-@media (max-width: 600px) {
-    .meme-grid {
-        grid-template-columns: 1fr;
-    }
 }

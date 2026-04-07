@@ -1,56 +1,55 @@
 import React from "react";
-import { formatNumber, truncateText } from "../utils/helpers";
+import { formatNumber } from "../utils/helpers";
 import './MemeCard.css';
 
 const MemeCard = React.memo(function MemeCard({ meme, isLiked, onToggleLike }) {
-
-    console.log(`MemeCard rendered: ${meme.title}`);
+    const postDate = meme.createdUtc
+        ? new Date(meme.createdUtc * 1000).toLocaleDateString()
+        : null;
 
     return (
-        <div className="meme-card">
+        <article className="meme-card">
+            <div className="meme-post-header">
+                <div className="meme-post-identity">
+                    <div className="meme-avatar">
+                        {(meme.subreddit || "m").slice(0, 1).toUpperCase()}
+                    </div>
+
+                    <div className="meme-post-meta">
+                        <p className="meme-post-name">r/{meme.subreddit}</p>
+                        <p className="meme-post-submeta">
+                            Posted by u/{meme.author}
+                            {postDate ? ` � ${postDate}` : ""}
+                        </p>
+                    </div>
+                </div>
+
+                <a
+                    className="meme-open-link"
+                    href={meme.postLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Open post
+                </a>
+            </div>
 
             <div className="meme-image-wrapper">
                 <img
                     className="meme-image"
                     src={meme.url}
                     alt={meme.title}
-
                     loading="lazy"
-
                     onError={(e) => {
                         e.target.style.display = "none";
                         e.target.parentElement.classList.add("image-error");
                     }}
                 />
-
-                <span className="meme-subreddit-tag">
-                    r/{meme.subreddit}
-                </span>
             </div>
 
             <div className="meme-content">
-
-                <h3 className="meme-title">
-                    {truncateText(meme.title, 80)}
-                </h3>
-
                 <div className="meme-meta">
-                    <div className="meme-author">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            className="meta-icon"
-                        >
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                            <circle cx="12" cy="7" r="4" />
-                        </svg>
-                        <span>{meme.author}</span>
-                    </div>
-
-                    <div className="meme-ups">
+                    <div className="meme-meta-pill">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 24 24"
@@ -61,12 +60,33 @@ const MemeCard = React.memo(function MemeCard({ meme, isLiked, onToggleLike }) {
                         >
                             <polyline points="18 15 12 9 6 15" />
                         </svg>
-                        <span>{formatNumber(meme.ups)}</span>
+                        <span>{formatNumber(meme.ups)} likes</span>
+                    </div>
+
+                    <div className="meme-meta-pill">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            className="meta-icon"
+                        >
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                        </svg>
+                        <span>{meme.preview ? `${meme.preview.length} preview${meme.preview.length > 1 ? "s" : ""}` : "Meme post"}</span>
                     </div>
                 </div>
 
-                <div className="meme-actions">
+                <h3 className="meme-title">{meme.title}</h3>
 
+                <p className="meme-caption">
+                    <span className="meme-caption-author">u/{meme.author}</span>{" "}
+                    shared this from <span className="meme-caption-subreddit">r/{meme.subreddit}</span>.
+                    Tap open post if you want the original Reddit thread.
+                </p>
+
+                <div className="meme-actions">
                     <button
                         className={`meme-like-btn ${isLiked ? "meme-like-btn-active" : ""}`}
                         onClick={() => onToggleLike(meme.url)}
@@ -104,10 +124,9 @@ const MemeCard = React.memo(function MemeCard({ meme, isLiked, onToggleLike }) {
                         </svg>
                         View Post
                     </a>
-
                 </div>
             </div>
-        </div>
+        </article>
     );
 });
 

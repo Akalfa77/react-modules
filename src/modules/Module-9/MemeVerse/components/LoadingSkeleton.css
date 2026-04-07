@@ -1,30 +1,27 @@
 .skeleton-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 20px;
-    padding: 10px 0;
+    width: min(100%, 680px);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 10px 0 0;
 }
 
 .skeleton-card {
-    border: 1px solid #e0e0e0;
-    border-radius: 10px;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: 28px;
     overflow: hidden;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
 }
 
-/* The pulsing animation — fades between light grey shades */
-/* This simulates content loading */
 .skeleton-pulse {
-    background: linear-gradient(90deg,
-            #f0f0f0 25%,
-            #e0e0e0 50%,
-            #f0f0f0 75%);
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
     background-size: 200% 100%;
     animation: skeleton-shimmer 1.5s infinite;
     border-radius: 4px;
 }
 
-/* Shimmer moves from left to right — mimics light reflection */
 @keyframes skeleton-shimmer {
     0% {
         background-position: 200% 0;
@@ -35,52 +32,67 @@
     }
 }
 
-/* Image area - fixed height to match real card */
 .skeleton-image {
     width: 100%;
-    height: 220px;
+    height: 420px;
     border-radius: 0;
 }
 
 .skeleton-content {
-    padding: 14px;
+    padding: 18px 20px 20px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 14px;
 }
 
-/* Full width title line */
 .skeleton-title {
-    height: 14px;
+    height: 16px;
     width: 100%;
 }
 
-/* Shorter second title line — looks more natural */
 .skeleton-title-short {
     width: 65%;
 }
 
 .skeleton-meta {
     display: flex;
-    gap: 8px;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
-/* Small tag-like placeholders */
 .skeleton-tag {
-    height: 24px;
-    width: 80px;
+    height: 32px;
+    width: 110px;
     border-radius: 20px;
 }
 
 .skeleton-actions {
     display: flex;
-    gap: 8px;
-    margin-top: 4px;
+    gap: 10px;
+    margin-top: 6px;
+    flex-wrap: wrap;
 }
 
-/* Button placeholders */
 .skeleton-btn {
-    height: 32px;
-    width: 90px;
-    border-radius: 6px;
+    height: 42px;
+    width: 150px;
+    border-radius: 999px;
+}
+
+@media (max-width: 640px) {
+    .skeleton-card {
+        border-radius: 22px;
+    }
+
+    .skeleton-image {
+        height: 280px;
+    }
+
+    .skeleton-content {
+        padding: 16px;
+    }
+
+    .skeleton-btn {
+        width: 100%;
+    }
 }

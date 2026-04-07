@@ -8,7 +8,7 @@ export function formatNumber(num) {
     return (num / 1000).toFixed(1) + "k";
   }
 
-  return num.String();
+  return num.toString();
 }
 
 export function removeDuplicates(existingMemes, newMemes) {
@@ -23,4 +23,10 @@ export function truncateText(text, maxLength = 80) {
   if (!text) return "";
   if (text.length <= maxLength) return text;
   return text.substring(0, maxLength).trim() + "...";
+}
+
+export function isValidImageUrl(url) {
+  if (!url || typeof url !== "string") return false;
+
+  return /\.(jpg|jpeg|png|gif|webp)$/i.test(url);
 }

@@ -1,29 +1,49 @@
-/* Fixed position — stays in corner while user scrolls */
 .back-to-top {
     position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background-color: #4a90d9;
+    bottom: 24px;
+    right: 24px;
+    height: 52px;
+    padding: 0 18px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #ff7a18, #ff3d77);
     color: white;
     border: none;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.2s ease, transform 0.2s ease;
+    gap: 8px;
+    box-shadow: 0 20px 40px rgba(244, 63, 94, 0.28);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
     z-index: 999;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.01em;
 }
 
 .back-to-top:hover {
-    background-color: #357abd;
     transform: translateY(-2px);
+    box-shadow: 0 24px 48px rgba(244, 63, 94, 0.34);
 }
 
 .back-to-top-icon {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
+}
+
+.back-to-top-label {
+    line-height: 1;
+}
+
+@media (max-width: 640px) {
+    .back-to-top {
+        right: 14px;
+        bottom: 14px;
+        height: 48px;
+        padding: 0 14px;
+    }
+
+    .back-to-top-label {
+        display: none;
+    }
 }

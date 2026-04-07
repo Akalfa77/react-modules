@@ -1,0 +1,34 @@
+.meme-grid-container {
+    width: 100%;
+}
+
+.meme-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+/* Container for bottom skeleton cards */
+/* Adds some top spacing to separate from main grid */
+.loading-more-skeleton {
+    margin-top: 10px;
+}
+
+/* Empty state message */
+.no-memes {
+    text-align: center;
+    padding: 60px 20px;
+    color: #888;
+    font-size: 15px;
+}
+
+.no-memes p {
+    margin: 0;
+}
+
+/* Responsive grid adjustments */
+@media (max-width: 600px) {
+    .meme-grid {
+        grid-template-columns: 1fr;
+    }
+}

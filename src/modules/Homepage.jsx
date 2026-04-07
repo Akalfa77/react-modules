@@ -32,6 +32,7 @@ export default function Homepage() {
                         <NavLink to="/moduleTask8">Module-task8</NavLink>
                         <NavLink to="/demoApp9">DemoApp9</NavLink>
                         <NavLink to="/milestoneTask9">MilestoneTask9</NavLink>
+                        <NavLink to="/memeVerse">MemeVerse</NavLink>
                     </nav>
                 </div>
             </div>

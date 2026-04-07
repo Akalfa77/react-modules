@@ -26,6 +26,7 @@ import UnoptimizedDashboard from "./modules/Module-9/UnoptimizedApp/UnoptimizedD
 import OptimizedDashboard from "./modules/Module-9/OptimizedApp/OptimizedDashboard"
 import VirtualizedDashboard from "./modules/Module-9/VirtualizedApp/VirtualizedDashboard";
 import MilestoneApp from './modules/Module-9/MilestoneTask/components/MilestoneApp';
+import MemeVerse from './modules/Module-9/MemeVerse/MemeVerse';
 
 export default function App() {
     return (
@@ -63,6 +64,8 @@ export default function App() {
                         <Route path="virtualized" element={<VirtualizedDashboard />} />
                     </Route>
                     <Route path="milestoneTask9" element={<MilestoneApp />} />
+                    <Route path="/memeVerse" element={<MemeVerse />} />
+
                 </Route>
             </Routes>
         </>

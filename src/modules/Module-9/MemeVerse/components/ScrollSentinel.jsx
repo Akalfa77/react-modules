@@ -4,6 +4,13 @@ import './ScrollSentinel.css';
 export default function ScrollSentinel({ onIntersect, hasMore, loading }) {
 
     const sentinelRef = useRef(null);
+    const hasTriggeredRef = useRef(false);
+
+    useEffect(() => {
+        if (!loading) {
+            hasTriggeredRef.current = false;
+        }
+    }, [loading]);
 
     useEffect(() => {
 
@@ -11,12 +18,16 @@ export default function ScrollSentinel({ onIntersect, hasMore, loading }) {
         const observer = new IntersectionObserver(
             (entries) => {
                 const sentinel = entries[0];
-                if (sentinel.isIntersecting) {
+                if (sentinel.isIntersecting && !hasTriggeredRef.current) {
+                    hasTriggeredRef.current = true;
                     onIntersect();
+                }
+                if (!sentinel.isIntersecting) {
+                    hasTriggeredRef.current = false;
                 }
             },
             {
-                rootMargin: "0px 0px 100px 0px",
+                rootMargin: "0px 0px 240px 0px",
                 threshold: 0.1,
             }
         );

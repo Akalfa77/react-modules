@@ -50,7 +50,7 @@ export default function MemeGrid({
 
             {loadingMore && (
                 <div className="loading-more-skeleton">
-                    <LoadingSkeleton count={3} />
+                    <LoadingSkeleton count={2} />
                 </div>
             )}
 

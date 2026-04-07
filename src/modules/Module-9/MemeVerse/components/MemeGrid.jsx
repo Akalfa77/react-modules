@@ -58,17 +58,22 @@ export default function MemeGrid({
                 />
             )}
 
-            {loadingMore && (
-                <div className="loading-more-skeleton">
-                    <LoadingSkeleton count={3} />
-                </div>
-            )}
+            <div className={`meme-load-zone ${loadingMore ? "meme-load-zone-active" : ""}`}>
+                {loadingMore ? (
+                    <div className="meme-inline-loader" aria-live="polite">
+                        <span className="meme-inline-loader-dot" />
+                        Loading more memes...
+                    </div>
+                ) : (
+                    <div className="meme-load-zone-spacer" aria-hidden="true" />
+                )}
 
-            <ScrollSentinel
-                onIntersect={onLoadMore}
-                hasMore={hasMore}
-                loading={loadingMore}
-            />
+                <ScrollSentinel
+                    onIntersect={onLoadMore}
+                    hasMore={hasMore}
+                    loading={loadingMore}
+                />
+            </div>
         </div>
     );
 }

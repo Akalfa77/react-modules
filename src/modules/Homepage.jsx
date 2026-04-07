@@ -1,9 +1,11 @@
 import React from 'react'
-import { NavLink, Outlet, useNavigate } from 'react-router'
+import { NavLink, Outlet, useLocation, useNavigate } from 'react-router'
 import './homepage.css'
 
 export default function Homepage() {
     const navigate = useNavigate();
+    const location = useLocation();
+    const isFeedRoute = location.pathname === "/memeVerse";
 
     return (
         <>
@@ -41,11 +43,13 @@ export default function Homepage() {
                 <Outlet />
             </div>
 
-            <div className='bottom-section'>
-                <button className='backward-btn' onClick={() => { navigate(-1) }}>Go Backward</button>
-                <button className='forward-btn' onClick={() => { navigate(1) }}>Go forward</button>
-                <button className='home-btn' onClick={() => { navigate("..", { replace: true }) }}>Go to Home</button>
-            </div>
+            {!isFeedRoute && (
+                <div className='bottom-section'>
+                    <button className='backward-btn' onClick={() => { navigate(-1) }}>Go Backward</button>
+                    <button className='forward-btn' onClick={() => { navigate(1) }}>Go forward</button>
+                    <button className='home-btn' onClick={() => { navigate("..", { replace: true }) }}>Go to Home</button>
+                </div>
+            )}
         </>
     )
 }

@@ -1,5 +1,5 @@
 .scroll-sentinel {
-    height: 1px;
+    height: 40px;
     width: min(100%, 680px);
     margin: 0 auto;
 }
